@@ -16,6 +16,7 @@ export default function MyPost() {
           <h3>POSTS</h3>
           <Post message="Hi there"/>
           <Post message="It's my first post"/>
+          <Post message="Wazzzzzzzzup"/>
          
     </div>
   )

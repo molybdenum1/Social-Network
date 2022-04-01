@@ -1,17 +1,16 @@
 import React from 'react'
 import './Navbar.css';
+import NavItem from './Navbar-Item/NavItem';
 
 export default function Navbar() {
   return (
-    <div>
-      <nav className='nav'>
-        <div><a className="item">Profile</a></div>
-        <div><a className="item">Dialogi te-a-tet</a></div>
-        <div><a  className="item">Lenta</a></div>
-        <div><a className="item">Docs</a></div>
-        <div><a className="item">Music</a></div>
-        <div><a className="item">Settings</a></div>
-      </nav>
+    <div className='nav'>
+      <NavItem name="Profile"/>
+      <NavItem name="Dialogi te-a-tet"/>
+      <NavItem name="Groups"/>
+      <NavItem name="Gallery"/>
+      <NavItem name="Settings"/>
+      
     </div>
   )
 }
