@@ -8,34 +8,14 @@
   display: grid;
   grid-template-areas: 
   "header header" 
-  "cont nav  " ;
+  "navbar profile" ;
 
   grid-template-rows: 60px 1fr;
-  grid-template-columns: 2fr 10fr ;
-}
-.header{
-  background-color: chocolate;
-  grid-area: header;
-
-}
-.header img {
-  width: 40px;
-  height: 40px;
-}
-.nav{
-  background-color: coral;
-  grid-area: nav;
-}
-.item{
-  color: white;
-  margin: 7px;
+  grid-template-columns: 4fr 8fr ;
 }
 
-.content{
-  text-align: center;
-  background-color: bisque;
-  grid-area: cont;
-}
+
+
 
 
 
