@@ -4,7 +4,7 @@ import './NavItem.css';
 export default function NavItem(props) {
   return (
     <div>
-      <a className="item">{props.name}</a>
+      <a href={"/" + props.path} className="item">{props.name}</a>
     </div>
   )
 }
