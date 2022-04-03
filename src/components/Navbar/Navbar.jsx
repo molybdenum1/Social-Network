@@ -5,11 +5,11 @@ import NavItem from './Navbar-Item/NavItem';
 export default function Navbar() {
   return (
     <div className='nav'>
-      <NavItem name="Profile"/>
-      <NavItem name="Dialogi te-a-tet"/>
-      <NavItem name="Groups"/>
-      <NavItem name="Gallery"/>
-      <NavItem name="Settings"/>
+      <NavItem name="Profile" path='profile'/>
+      <NavItem name="Dialogi te-a-tet" path='dialogs'/>
+      <NavItem name="Groups" path='groups'/>
+      <NavItem name="Gallery" path='gallery'/>
+      <NavItem name="Settings" path='settings'/>
       
     </div>
   )

@@ -1,0 +1,29 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+    text-align: left;
+}
+.dialog-items {
+
+}
+.dialog {
+    padding: 10px;
+}
+.user-dialog {
+    font-size: 16pt;
+    text-decoration: none;
+    color: darksalmon;
+}
+.active{
+    color: brown;
+}
+.messages {
+
+}
+.message {
+    color: white;
+    margin: 15px;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: coral;
+}
