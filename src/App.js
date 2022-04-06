@@ -8,7 +8,8 @@ import './App.css';
 
 
 
-function App() {
+function App(props) {
+
   return (
     <BrowserRouter>
       <div className="app-wrapper">
@@ -16,8 +17,8 @@ function App() {
       <Navbar/>
       <div className="app-wrapper-content">
         <Routes>
-          <Route path="/profile" element={<Profile/>}/>
-          <Route path="/dialogs/*" element={<Dialogs/>}/>
+          <Route path="/profile"   element={<Profile posts = {props.data.postData}/>     } />
+          <Route path="/dialogs/*" element={<Dialogs dialogs = {props.data.dialogsData}/>} />
         </Routes>
         
       </div>

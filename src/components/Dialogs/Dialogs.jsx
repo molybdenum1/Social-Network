@@ -4,20 +4,20 @@ import Dialog from './Dialog/Dialog'
 import Message from './Message/Message'
 import './Dialogs.css'
 
-export default function Dialogs() {
+export default function Dialogs(props) {
+
+  let userEl = props.dialogs.users.map( user => <Dialog id={user.id} name={user.name}/>)
+  let msgEl = props.dialogs.messages.map( msg => <Message text={msg.text}/>)
+
   return (
     <div>
       <h1>Dialogs</h1>
       <div className="dialogs">
         <div className="dialogs-item">
-          <Dialog id="1" name="Denchick"/>
-          <Dialog id="2" name="Tom Holland"/>
-          <Dialog id="3" name="Andrew Garfield"/>
+          {userEl}
         </div>
         <div className="messages">
-          <Message text="hi there"/>
-          <Message text="wazzzzzzup"/>
-          <Message text="cooooooooo0l"/>
+          {msgEl}
         </div>
       </div>
       
