@@ -1,0 +1,13 @@
+.div-nav-it{
+  margin-top: 10px;
+}
+.nav-item {
+    font-size: 14pt;
+    text-decoration: none;
+    color: white;
+    margin: 10px;
+    padding: 10px;
+  }
+.nav-item active{
+  color: gold;
+}

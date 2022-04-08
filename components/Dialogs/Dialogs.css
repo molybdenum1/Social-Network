@@ -1,0 +1,55 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+    text-align: left;
+}
+.dialog-items {
+
+}
+.dialog {
+    padding: 10px;
+}
+.user-dialog {
+    font-size: 16pt;
+    text-decoration: none;
+    color: darksalmon;
+}
+.active{
+    color: brown;
+}
+.messages {
+
+}
+.message {
+    color: white;
+    margin: 15px;
+    padding: 15px;
+    border-radius: 4px;
+    background-color: coral;
+}
+.add-mess{
+    display: grid;
+    padding: 20px;
+    grid-template-columns: 10fr 2fr;
+}
+
+#mess { 
+
+    width: 100%;
+    height: 50px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid brown;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+}
+.toSend {
+    margin-left: 10px;
+    background-color: coral;
+    border: 2px solid brown;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+}
