@@ -8,7 +8,7 @@
     
     grid-template-columns: 1fr 2fr ;
 }
-.img{
+.post-img{
     text-align: right;
 }
 .post img{
@@ -19,7 +19,7 @@
 
     grid-area: img;
 }
-.message{
+.post-msg{
     grid-area: message;
     text-align: left;
 
