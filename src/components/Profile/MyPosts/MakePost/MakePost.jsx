@@ -1,17 +1,19 @@
-import React from 'react'
+import React from 'react';
 import './MakePost.css';
+import {updateNewPostTextActionCreator, addPostActionCreator } from '../../../../redux/state';
+
 
 export default function MakePost(props) {
 
   let newPostElement = React.createRef();
 
   let makePost = () =>{
-    props.dispatch({type : 'ADD-POST'})
+    props.dispatch(addPostActionCreator())
   }
 
   let onPostChange = () => {
     let text = newPostElement.current.value;
-    props.dispatch( {type : 'UPDATE-NEW-POST-TEXT', newText: text} );
+    props.dispatch( updateNewPostTextActionCreator(text) );
   }
 
   return (

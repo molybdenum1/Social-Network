@@ -25,6 +25,8 @@ function App(props) {
                           />} />
           <Route path="/dialogs/*" 
                 element={<Dialogs 
+                          newMessText = {props.data.dialogsData.newMessText}
+                          dispatch = {props.dispatch}
                           dialogs = {props.data.dialogsData}/>} 
                           />
                           
