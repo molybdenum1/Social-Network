@@ -14,7 +14,11 @@ export default function Profile(props) {
         <h2>MY PROFILE</h2>
         <h3>About</h3>
         <ProfileDesc/>
-        <MyPost posts = {props.posts}/>
+        <MyPost 
+        posts = {props.posts}
+        newPostText = {props.newPostText}
+        dispatch = {props.dispatch} 
+        />
         
     </div>
   )

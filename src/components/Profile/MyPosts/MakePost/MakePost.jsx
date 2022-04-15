@@ -1,22 +1,32 @@
-import React from 'react'
+import React from 'react';
 import './MakePost.css';
+import {updateNewPostTextActionCreator, addPostActionCreator } from '../../../../redux/profileReducer';
 
-export default function MakePost() {
+
+export default function MakePost(props) {
 
   let newPostElement = React.createRef();
 
-  let addPost = () =>{
+  let makePost = () =>{
+    props.dispatch(addPostActionCreator())
+  }
+
+  let onPostChange = () => {
     let text = newPostElement.current.value;
-    alert(text);
+    props.dispatch( updateNewPostTextActionCreator(text) );
   }
 
   return (
     <div>
       <div>
-        <textarea className="make-post-area" ref={ newPostElement }/>
+        <textarea 
+        className="make-post-area" 
+        value={ props.newPostText }
+        onChange={ onPostChange } 
+        ref={ newPostElement }/>
       </div>
       <div>
-        <input className="make-post-btn" type="submit" value="Add Post" onClick={addPost}/>
+        <input className="make-post-btn" type="button" value="Add Post" onClick={ makePost }/>
       </div>
     </div>
   )

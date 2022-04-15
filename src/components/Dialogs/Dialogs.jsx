@@ -1,8 +1,8 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import Dialog from './Dialog/Dialog'
-import Message from './Message/Message'
+import React from 'react';
+import Dialog from './Dialog/Dialog';
+import Message from './Message/Message';
 import './Dialogs.css'
+import {updateNewMessageActionCreator, addMessageActionCreator } from '../../redux/dialogsReducer';
 
 export default function Dialogs(props) {
 
@@ -10,10 +10,16 @@ export default function Dialogs(props) {
   let msgEl = props.dialogs.messages.map( msg => <Message text={msg.text}/>)
 
   let newMessage = React.createRef();
-  let addMessage = () => {
-    let mes = newMessage.current.value;
-    alert(mes);
+
+  let addMessage = () =>{
+    props.dispatch(addMessageActionCreator())
   }
+
+  let changeMessage = () => {
+    let text = newMessage.current.value;
+    props.dispatch( updateNewMessageActionCreator(text) );
+  }
+
 
   return (
     <div>
@@ -25,8 +31,8 @@ export default function Dialogs(props) {
         <div className="messages">
           {msgEl}
           <div className="add-mess">
-            <textarea name="mess" id="mess"  ref={newMessage}></textarea>
-            <button className="toSend" onClick={addMessage}>Send</button>
+            <textarea name="mess" id="mess" value={props.newMessText} onChange={ changeMessage } ref={newMessage}></textarea>
+            <button className="toSend" onClick={ addMessage }>Send</button>
           </div>
         </div>
       </div>
