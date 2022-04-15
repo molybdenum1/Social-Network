@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .header{
     background-color: brown;
     grid-area: header;
@@ -6,4 +7,14 @@
   .header img {
     width: 40px;
     height: 40px;
+=======
+.header{
+    background-color: brown;
+    grid-area: header;
+  
+  }
+  .header img {
+    width: 40px;
+    height: 40px;
+>>>>>>> 8d9d80c8514a1d7f30752702e159e6fe9f7085aa
   }

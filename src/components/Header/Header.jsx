@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import './Header.css';
 
@@ -10,3 +11,17 @@ export default function Header() {
     </div>
   )
 }
+=======
+import React from 'react';
+import './Header.css';
+
+export default function Header() {
+  return (
+    <div className='header' >
+       <header >
+            <img src="https://assets-global.website-files.com/5e3177cecf36f6591e4e38cb/5ea2a86505e63bdd814cf868_Logo.png"/>
+       </header>
+    </div>
+  )
+}
+>>>>>>> 8d9d80c8514a1d7f30752702e159e6fe9f7085aa
