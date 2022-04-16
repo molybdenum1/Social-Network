@@ -15,9 +15,8 @@ export default function Profile(props) {
         <h3>About</h3>
         <ProfileDesc/>
         <MyPost 
-        posts = {props.posts}
-        newPostText = {props.newPostText}
-        dispatch = {props.dispatch} 
+        
+        dispatch = {props.dispatch}
         />
         
     </div>
