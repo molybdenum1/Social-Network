@@ -2,10 +2,11 @@
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/NavBar';
 import Profile from './components/Profile/Profile';
-import Dialogs from './components/Dialogs/Dialogs';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
+import FriendsContainer from './components/Friends/Friends';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import './App.css';
-import DialogsContainer from './components/Dialogs/DialogsContainer';
+
 
 
 
@@ -29,6 +30,11 @@ function App(props) {
                 element={<DialogsContainer 
                           store = {props.store}
                           dispatch = {props.dispatch}
+                          />
+                        } 
+                          />
+          <Route path="/friends" 
+                element={<FriendsContainer
                           />
                         } 
                           />

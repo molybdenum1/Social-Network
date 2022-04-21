@@ -9,19 +9,20 @@ export default function MakePost(props) {
 
   let makePost = () =>{
     props.makePost();
+    
   }
 
   let onPostChange = () => {
     let text = newPostElement.current.value;
     props.updateNewPostText(text);
   }
-
+  
   return (
     <div>
       <div>
         <textarea 
         className="make-post-area" 
-        value={ props.newPostText }
+        value={ props.postData.newPostText }
         onChange={ onPostChange } 
         ref={ newPostElement }/>
       </div>

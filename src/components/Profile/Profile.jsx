@@ -15,8 +15,7 @@ export default function Profile(props) {
         <h3>About</h3>
         <ProfileDesc/>
         <MyPost 
-        
-        dispatch = {props.dispatch}
+        store = {props.store}
         />
         
     </div>

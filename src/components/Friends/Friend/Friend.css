@@ -1,0 +1,46 @@
+.friend-field{
+    display: grid;
+
+    grid-template-areas: 
+    "leftside rightside";
+    grid-template-columns: 2fr 10fr;
+
+    margin-bottom: 30px;
+}
+
+.friend-left{
+    grid-area: 'leftside';
+
+    padding-top: 20px;
+    margin: 0 20px;
+}
+
+.friend-ava-img{
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+}
+.s-btn{
+    margin-top: 10px;
+    border: none;
+    font-size: 12pt;
+    padding: 10px;
+    color: white;
+    background-color: coral;
+    border-radius: 5px;
+}
+
+.friend-right{
+    grid-area: 'rightside';
+
+    margin: 30px 30px;
+    margin-right: 40px;
+    padding: 10px;
+    padding-left: 20px;
+
+    border: 2px solid brown ;
+    background-color: white;
+    border-radius: 10px;
+
+    text-align: left;
+}

@@ -1,24 +1,24 @@
-import React from 'react';
 import MakePost from './MakePost';
 import {updateNewPostTextActionCreator, addPostActionCreator } from '../../../../redux/profileReducer';
+import { connect } from 'react-redux';
 
 
-export default function MakePostContainer(props) {
-
-  
-
-  let makePost = () =>{
-    props.dispatch(addPostActionCreator())
+let mapStateToProps = (state) => {
+  return {
+    postData: state.postData 
   }
-
-  let onPostChange = (text) => {
-    props.dispatch( updateNewPostTextActionCreator(text) );
-  }
-
-  return (
-    <MakePost 
-      makePost={makePost} 
-      updateNewPostText={onPostChange} 
-      newPostText={props.store.postData.newPostText}/>
-  )
 }
+
+let mapDispatchToProps = (dispatch) => {
+  return {
+    makePost: () => {
+      dispatch(addPostActionCreator());
+    },
+    updateNewPostText: (text) => {
+     dispatch( updateNewPostTextActionCreator(text) );
+    }
+  }
+}
+
+const MakePostContainer = connect(mapStateToProps, mapDispatchToProps)(MakePost);
+export default  MakePostContainer;

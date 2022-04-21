@@ -2,12 +2,11 @@ import React from 'react';
 import Dialog from './Dialog/Dialog';
 import Message from './Message/Message';
 import './Dialogs.css'
-import {updateNewMessageActionCreator, addMessageActionCreator } from '../../redux/dialogsReducer';
 
 export default function Dialogs(props) {
 
-  let userEl = props.store.users.map( user => <Dialog id={user.id} name={user.name}/>)
-  let msgEl = props.store.messages.map( msg => <Message text={msg.text}/>)
+  let userEl = props.dialogsData.users.map( user => <Dialog id={user.id} key={user.id} name={user.name}/>)
+  let msgEl = props.dialogsData.messages.map( msg => <Message text={msg.text} key={msg.id}/>)
 
   let newMessage = React.createRef();
 
@@ -31,7 +30,12 @@ export default function Dialogs(props) {
         <div className="messages">
           {msgEl}
           <div className="add-mess">
-            <textarea name="mess" id="mess" value={props.store.newMessText} onChange={ onChangeMessage } ref={newMessage}></textarea>
+            <textarea 
+              name="mess" 
+              id="mess" 
+              value={props.dialogsData.newMessText} 
+              onChange={ onChangeMessage } 
+              ref={newMessage}/>
             <button className="toSend" onClick={ onAddMessage }>Send</button>
           </div>
         </div>

@@ -7,6 +7,7 @@ export default function Navbar() {
     <div className='nav'>
       <NavItem name="Profile" path='profile'/>
       <NavItem name="Dialogi te-a-tet" path='dialogs'/>
+      <NavItem name="Friends" path='friends'/>
       <NavItem name="Groups" path='groups'/>
       <NavItem name="Gallery" path='gallery'/>
       <NavItem name="Settings" path='settings'/>
