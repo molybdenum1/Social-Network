@@ -1,4 +1,3 @@
-import react from 'react';
 import { connect } from 'react-redux';
 import { followAC, setUserAC, unfollowAC } from '../../redux/friendsReducer';
 import Friends from './Friends';

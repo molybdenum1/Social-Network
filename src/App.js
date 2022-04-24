@@ -3,7 +3,7 @@ import Header from './components/Header/Header';
 import Navbar from './components/Navbar/NavBar';
 import Profile from './components/Profile/Profile';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
-import FriendsContainer from './components/Friends/Friends';
+import FriendsContainer from './components/Friends/FriendsContainer';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import './App.css';
 
