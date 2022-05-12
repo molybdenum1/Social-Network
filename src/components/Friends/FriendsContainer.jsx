@@ -1,10 +1,13 @@
 import { connect } from 'react-redux';
 import { followAC, setUserAC, unfollowAC } from '../../redux/friendsReducer';
-import Friends from './Friends';
+import FriendsC from './FriendsC';
 
 let mapStateToProps = (state) => {
     return{
-        friends: state.friendsData.friends
+        friends: state.friendsData.friends,
+        pageSize: state.friendsData.pageSize,
+        totalUserCount: state.friendsData.totalUserCount,
+        currentPage: state.friendsData.currentPage,
     };
 }
 
@@ -22,5 +25,5 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-const friendsContainer = connect(mapStateToProps, mapDispatchToProps)(Friends);
+const friendsContainer = connect(mapStateToProps, mapDispatchToProps)(FriendsC);
 export default friendsContainer;
