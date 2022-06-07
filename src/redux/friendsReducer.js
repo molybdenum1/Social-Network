@@ -2,12 +2,13 @@ const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
 const SET_USERS_PAGE = 'SET_USERS_PAGE';
+const SET_TOTAL_USER_COUNT = 'SET_TOTAL_USER_COUNT';
 
 let initailState = {
     friends : [],
     pageSize: 10,
-    totalUserCount: 84,
-    currentPage: 4
+    totalUserCount: 0,
+    currentPage: 1
 }
 
 const friendsReducer = (state = initailState, action) => {
@@ -39,11 +40,16 @@ const friendsReducer = (state = initailState, action) => {
     } else if (action.type === SET_USERS){
         return {
             ...state,
-            friends: [ action.friends]
+            friends:  action.friends
         }
     }else if(action.type === SET_USERS_PAGE){
         return {
             ...state, currentPage: action.currentPage
+        }
+    }
+    else if(action.type === SET_TOTAL_USER_COUNT){
+        return {
+            ...state, totalUserCount: action.count
         }
     } 
     else {
@@ -55,5 +61,7 @@ const friendsReducer = (state = initailState, action) => {
 export const followAC = (userID) => ({type: FOLLOW, userID});
 export const unfollowAC = (userID) => ({type: UNFOLLOW, userID});
 export const setUserAC  = (friends) => ({type: SET_USERS, friends});
+export const setCurrentPageAC  = (currentPage) => ({type: SET_USERS_PAGE, currentPage});
+export const setTotalCountAC  = (count) => ({type: SET_TOTAL_USER_COUNT, count});
 
 export default friendsReducer;
