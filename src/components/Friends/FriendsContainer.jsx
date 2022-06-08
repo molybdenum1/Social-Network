@@ -1,6 +1,43 @@
 import { connect } from 'react-redux';
 import { followAC, setUserAC, unfollowAC, setCurrentPageAC, setTotalCountAC } from '../../redux/friendsReducer';
-import FriendsC from './FriendsC';
+import React from 'react';
+import * as axios from 'axios';
+import Friends from './Friends';
+import './Friends.css';
+
+
+class FriendsC extends React.Component {
+  
+    constructor(props){
+      super(props);
+      this.componentDidMount = this.componentDidMount.bind(this);
+    }
+  
+    componentDidMount() {
+      axios.get(`https://swapi.dev/api/people/?page=${this.props.currentPage}`).then(response => {
+        this.props.setUsers(response.data.results)
+        this.props.setTotalUsersCount(response.data.count)
+      }) 
+    }
+    
+    onPageChanged = (p) => {
+      this.props.setCurrentPage(p);
+      axios.get(`https://swapi.dev/api/people/?page=${this.props.currentPage}`).then(response => {
+        this.props.setUsers(response.data.results)
+      }) 
+    }
+  
+    render() {
+   
+     
+  
+      return (
+        <Friends state={this.props} onPageChanged={this.onPageChanged}/>
+      )
+    }
+  
+    
+  }
 
 let mapStateToProps = (state) => {
     return{

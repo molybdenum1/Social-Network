@@ -1,28 +1,34 @@
 import React from 'react';
-import * as axios from 'axios';
 import Friend from './Friend/Friend';
 import './Friends.css';
 
 export default function Friends(props) {
 
 
-  if(props.friends.length === 0){
-    axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
-            //console.log(response.data)
-            props.setUsers(response.data.items)
-          })
+  let pagesCount = Math.ceil(props.state.totalUserCount /props.state.pageSize);
     
+  let pages = [];
+  for(let i = 1; i <= pagesCount; i++){
+    pages.push(i);
   }
- console.log( props.friends[1])
-
-   
+  
   return (
     <div>
-      <h1>Friends</h1>
-       {
-            props.friends.map((friend) => <Friend follow={props.follow} unfollow={props.unfollow} user={friend} id={friend.id} name={friend.name}/>)
-       }
-      <button className="show-more-btn">SHOW MORE</button>
-    </div>
+        <div>
+          {
+            pages.map(p => {
+            return   props.state.currentPage === p ?  
+            <span className="selectedPage" onClick={() => { props.onPageChanged(p) }}>{p}</span>
+            :
+            <span className="unselectedPage" onClick={() => {props.onPageChanged(p)}}>{p}</span>})
+          }
+        </div>
+        <h1>Friends</h1>
+         {
+             props.state.friends.map(
+               (friend) => <Friend  user={friend} id={friend.id} name={friend.name}/>)
+          }
+        <button className="show-more-btn">SHOW MORE</button>
+      </div>
   )
 }
