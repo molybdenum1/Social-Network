@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
-import { followAC, setUserAC, unfollowAC, setCurrentPageAC, setTotalCountAC } from '../../redux/friendsReducer';
+import { followAC, setUserAC, unfollowAC, setCurrentPageAC, setTotalCountAC, setSetIsFetchingAC } from '../../redux/friendsReducer';
 import React from 'react';
 import * as axios from 'axios';
 import Friends from './Friends';
+import loader from '../../assets/svg/ball-triangle.svg';
 import './Friends.css';
 
 
@@ -14,15 +15,19 @@ class FriendsC extends React.Component {
     }
   
     componentDidMount() {
+      this.props.setSetIsFetching(true)
       axios.get(`https://swapi.dev/api/people/?page=${this.props.currentPage}`).then(response => {
+        this.props.setSetIsFetching(false)
         this.props.setUsers(response.data.results)
         this.props.setTotalUsersCount(response.data.count)
       }) 
     }
     
     onPageChanged = (p) => {
+      this.props.setSetIsFetching(true);
       this.props.setCurrentPage(p);
       axios.get(`https://swapi.dev/api/people/?page=${this.props.currentPage}`).then(response => {
+        this.props.setSetIsFetching(false)
         this.props.setUsers(response.data.results)
       }) 
     }
@@ -32,7 +37,10 @@ class FriendsC extends React.Component {
      
   
       return (
-        <Friends state={this.props} onPageChanged={this.onPageChanged}/>
+        <>
+          { this.props.isFetching ? <img src={loader}/> : null }
+          <Friends state={this.props} onPageChanged={this.onPageChanged}/>
+        </>
       )
     }
   
@@ -45,6 +53,7 @@ let mapStateToProps = (state) => {
         pageSize: state.friendsData.pageSize,
         totalUserCount: state.friendsData.totalUserCount,
         currentPage: state.friendsData.currentPage,
+        isFetching : state.friendsData.isFetching,
     };
 }
 
@@ -64,7 +73,10 @@ let mapDispatchToProps = (dispatch) => {
         },
         setTotalUsersCount: (count) => {
             dispatch(setTotalCountAC(count));
-        }
+        },
+        setSetIsFetching: (isFetching) => {
+          dispatch(setSetIsFetchingAC(isFetching));
+      },
     }
 }
 
