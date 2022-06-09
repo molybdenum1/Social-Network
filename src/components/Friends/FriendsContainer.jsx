@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
-import { followAC, setUserAC, unfollowAC, setCurrentPageAC, setTotalCountAC, setSetIsFetchingAC } from '../../redux/friendsReducer';
+import { follow, setUser, unfollow,
+   setCurrentPage, setTotalCount, setSetIsFetching } from '../../redux/friendsReducer';
 import React from 'react';
 import * as axios from 'axios';
 import Friends from './Friends';
@@ -18,8 +19,8 @@ class FriendsC extends React.Component {
       this.props.setSetIsFetching(true)
       axios.get(`https://swapi.dev/api/people/?page=${this.props.currentPage}`).then(response => {
         this.props.setSetIsFetching(false)
-        this.props.setUsers(response.data.results)
-        this.props.setTotalUsersCount(response.data.count)
+        this.props.setUser(response.data.results)
+        this.props.setTotalCount(response.data.count)
       }) 
     }
     
@@ -28,7 +29,7 @@ class FriendsC extends React.Component {
       this.props.setCurrentPage(p);
       axios.get(`https://swapi.dev/api/people/?page=${this.props.currentPage}`).then(response => {
         this.props.setSetIsFetching(false)
-        this.props.setUsers(response.data.results)
+        this.props.setUser(response.data.results)
       }) 
     }
   
@@ -57,28 +58,10 @@ let mapStateToProps = (state) => {
     };
 }
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        follow: (userID) => {
-            dispatch(followAC(userID));;
-        },
-        unfollow: (userID) => {
-            dispatch(unfollowAC(userID));
-        },
-        setUsers: (users) => {
-            dispatch(setUserAC(users)); 
-        },
-        setCurrentPage: (pageNumber) => {
-            dispatch(setCurrentPageAC(pageNumber));
-        },
-        setTotalUsersCount: (count) => {
-            dispatch(setTotalCountAC(count));
-        },
-        setSetIsFetching: (isFetching) => {
-          dispatch(setSetIsFetchingAC(isFetching));
-      },
-    }
-}
 
-const friendsContainer = connect(mapStateToProps, mapDispatchToProps)(FriendsC);
+const friendsContainer = connect(mapStateToProps, 
+  {
+    follow, unfollow, setUser, setCurrentPage, setTotalCount, setSetIsFetching
+  }
+  )(FriendsC);
 export default friendsContainer;

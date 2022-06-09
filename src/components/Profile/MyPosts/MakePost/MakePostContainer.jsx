@@ -1,5 +1,5 @@
 import MakePost from './MakePost';
-import {updateNewPostTextActionCreator, addPostActionCreator } from '../../../../redux/profileReducer';
+import {updateNewPostTextAC, addPostAC } from '../../../../redux/profileReducer';
 import { connect } from 'react-redux';
 
 
@@ -9,16 +9,8 @@ let mapStateToProps = (state) => {
   }
 }
 
-let mapDispatchToProps = (dispatch) => {
-  return {
-    makePost: () => {
-      dispatch(addPostActionCreator());
-    },
-    updateNewPostText: (text) => {
-     dispatch( updateNewPostTextActionCreator(text) );
-    }
-  }
-}
+const MakePostContainer = connect(mapStateToProps, {
+  updateNewPostTextAC, addPostAC
+})(MakePost);
 
-const MakePostContainer = connect(mapStateToProps, mapDispatchToProps)(MakePost);
 export default  MakePostContainer;

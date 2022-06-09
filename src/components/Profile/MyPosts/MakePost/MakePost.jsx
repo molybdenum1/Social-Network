@@ -8,13 +8,13 @@ export default function MakePost(props) {
   let newPostElement = React.createRef();
 
   let makePost = () =>{
-    props.makePost();
+    props.addPostAC();
     
   }
 
   let onPostChange = () => {
     let text = newPostElement.current.value;
-    props.updateNewPostText(text);
+    props.updateNewPostTextAC(text);
   }
   
   return (

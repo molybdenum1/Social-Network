@@ -10,15 +10,15 @@ export default function Dialogs(props) {
 
   let newMessage = React.createRef();
 
+  
   let onAddMessage = () =>{
-    props.addMessage();
+    props.addMessageAC();
   }
 
   let onChangeMessage = () => {
     let text = newMessage.current.value;
-    props.changeMessage(text)
+    props.updateNewMessageAC(text)
   }
-
 
   return (
     <div>
