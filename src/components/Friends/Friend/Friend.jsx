@@ -1,17 +1,20 @@
 import React from 'react';
 import './Friend.css';
-import userPhoto from '../../../assets/img/1299.jpg'
+import {NavLink} from 'react-router-dom';
+import userPhoto from '../../../assets/img/1299.jpg';
 
 export default function Friend(props) {
-  //console.log(props.id)
+  let i = 1;
   return (
     <div className="friend-field">
       <div className="friend-left">
           <div className="friend-ava">
+             <NavLink to={'/profile/'}>
               <img 
-              className="friend-ava-img"
-              src={userPhoto} 
-              alt="friend-ava"/>
+                className="friend-ava-img"
+                src={userPhoto} 
+                alt="friend-ava"/>
+             </NavLink>
           </div>
           <div className="subs-btn">
             {/* {
