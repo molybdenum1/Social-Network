@@ -26,7 +26,7 @@ export default function Friends(props) {
         <h1>Friends</h1>
          {
              props.state.friends.map(
-               (friend) => <Friend  user={friend} name={friend.name}/>)
+               (friend) => <Friend  user={friend} name={friend.name} key={friend.url}/>)
           }
         <button className="show-more-btn">SHOW MORE</button>
       </div>

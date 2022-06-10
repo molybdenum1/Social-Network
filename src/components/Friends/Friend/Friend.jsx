@@ -4,12 +4,11 @@ import {NavLink} from 'react-router-dom';
 import userPhoto from '../../../assets/img/1299.jpg';
 
 export default function Friend(props) {
-  let i = 1;
   return (
     <div className="friend-field">
       <div className="friend-left">
           <div className="friend-ava">
-             <NavLink to={'/profile/'}>
+             <NavLink to={'/profile/'+ props.user.url.split('/')[5]}>
               <img 
                 className="friend-ava-img"
                 src={userPhoto} 
