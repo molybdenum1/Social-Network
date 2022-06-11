@@ -1,7 +1,7 @@
 
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/NavBar';
-import Profile from './components/Profile/Profile';
+import ProfileContainer from './components/Profile/ProfileContainer';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import FriendsContainer from './components/Friends/FriendsContainer';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
@@ -20,7 +20,7 @@ function App(props) {
       <div className="app-wrapper-content">
         <Routes>
           <Route path="/profile"
-                 element={<Profile 
+                 element={<ProfileContainer 
                           store = {props.store}
                           dispatch = {props.dispatch}
                           />} />

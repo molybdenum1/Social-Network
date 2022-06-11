@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { follow, setUser, unfollow,
    setCurrentPage, setTotalCount, setSetIsFetching } from '../../redux/friendsReducer';
 import React from 'react';
-import * as axios from 'axios';
+import get from 'axios';
 import Friends from './Friends';
 import loader from '../../assets/svg/ball-triangle.svg';
 import './Friends.css';
@@ -17,7 +17,9 @@ class FriendsC extends React.Component {
   
     componentDidMount() {
       this.props.setSetIsFetching(true)
-      axios.get(`https://swapi.dev/api/people/?page=${this.props.currentPage}`).then(response => {
+      
+      get(`https://swapi.dev/api/people/`).then(response => {
+        console.log(response.data.results)
         this.props.setSetIsFetching(false)
         this.props.setUser(response.data.results)
         this.props.setTotalCount(response.data.count)
@@ -27,7 +29,7 @@ class FriendsC extends React.Component {
     onPageChanged = (p) => {
       this.props.setSetIsFetching(true);
       this.props.setCurrentPage(p);
-      axios.get(`https://swapi.dev/api/people/?page=${this.props.currentPage}`).then(response => {
+      get(`https://swapi.dev/api/people/`).then(response => {
         this.props.setSetIsFetching(false)
         this.props.setUser(response.data.results)
       }) 
